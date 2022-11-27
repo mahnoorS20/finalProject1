@@ -1,0 +1,51 @@
+<%- include ../ejs_files/header.ejs %>
+<%- include ../ejs_files/nav_task.ejs %>
+<!--The Main content-->
+<main class="container">
+    <div class="row">
+    <div class="col-md-offset-3 col-md-15">
+    <br>
+    <br>
+    <h5>Gym sch</h5>
+    <br>
+    <br>
+    <!--table contains the data-->
+    <table class= "table table-bordered table-striped table-hover" background='\media\table_bg.jpg'>
+    <tr class="d-flex">
+      <th class="text-center text-white col-2">Member Name</th>
+      <th class="text-center text-white col-2">Member ID</th>
+      <th class="text-center text-white col-2">Class Date</th>
+      <th class="text-center text-white col-4">Class</th>
+      <th class="text-center text-white col-1">Edit</th>
+      <th class="text-center text-white col-1">Delete</th>
+    </tr>
+    <!--Repeating the template-->
+    <% for(let count=0; count < gym.length; count ++) { %>
+        <tr class="d-flex">
+          <td class="text-center text-white col-2"><%= gym[count].MemberName %></td>
+          <td class="text-center text-white col-2"><%= gym[count].MemberID %></td>
+          <td class="text-center text-white col-2"><%= gym[count].ClassDate %></td>
+          <td class="text-center text-white col-4"><%= gym[count].Class %></td>
+         
+          <td class="text-center col-1">
+            <a href="/tasks/edit/<%= gym[count]._id %>"
+              class="btn btn-primary">
+            <i class="fas fa-pencil-alt"></i></a>
+          </td>
+
+           <td class="text-center col-1">
+            <a href="/tasks/delete/<%= gym[count]._id %>"
+              class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i></a>
+          </td>
+
+        </tr>
+    <% } %>
+    </table>
+    <a href="/tasks/add" class="btn btn-primary" role="button">
+        <i class="fas fa-plus-circle"></i> Add a Class </a>
+</div>
+</div>
+</main>
+<%- include ../ejs_files/bottom_nav.ejs %>
+<%- include ../ejs_files/footer.ejs %>

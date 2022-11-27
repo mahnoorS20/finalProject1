@@ -1,0 +1,9 @@
+<%- include ejs_files/header.ejs %>
+<%- include ejs_files/main_nav.ejs %>
+<div class = "container">
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
+</div>
+<%- include ejs_files/bottom_nav.ejs %>
+<%- include ejs_files/footer.ejs %>
